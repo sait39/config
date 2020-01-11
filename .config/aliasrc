@@ -1,0 +1,23 @@
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -v" \
+	mkd="mkdir -pv" \
+	yt="youtube-dl --add-metadata -i" \
+	yta="yt -x -f bestaudio/best" \
+	ffmpeg="ffmpeg -hide_banner" \
+    ls='ls --color' \
+    ll='ls -l' \
+    la='ls -a' \
+    ga='git add' \
+    gst='git status' \
+    gc='git commit' \
+    gco='git checkout' \
+    gpl='git pull' \
+    gpom='git pull origin master' \
+    gp='git push' \
+    gb='git branch' \
+    gba='git branch -a' \
+    gdel='git branch -d' \
+    vi='nvim' \
+    config='/usr/bin/git --git-dir=$HOME/.cfg/ --git-dir=$HOME/.cfg/ --work-tree=$HOME'
