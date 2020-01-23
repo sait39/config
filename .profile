@@ -6,7 +6,7 @@ export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 export TERMINAL="st"
 export BROWSER="chromium"
 export ZDOTDIR="$HOME/.config/zsh"
-export NPM_CONFIG_USERCONFIG="$ME/.config/npm/npmrc"
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 
 # less/man colors
 export LESS=-R
@@ -18,4 +18,4 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
-export PATH=~/.local/bin:~/go/bin:~/.local/bin/npm-global:$PATH
+export PATH=~/.local/bin:~/go/bin:~/.local/bin/npm-global/bin:$PATH

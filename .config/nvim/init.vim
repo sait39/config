@@ -18,8 +18,11 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-eunuch'
 Plug 'morhetz/gruvbox'
 Plug 'alvan/vim-closetag'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/keys.vim
+source $HOME/.config/nvim/closetags.vim
+source $HOME/.config/nvim/javascript.vim

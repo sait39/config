@@ -20,9 +20,10 @@ endif
 vnoremap <Space> zf
 
 " " better curlybraces action
-inoremap {<cr> {<cr>}<c-o>O<tab>
-inoremap [<cr> [<cr>]<c-o>O<tab>
-inoremap (<cr> (<cr>)<c-o>O<tab>
+" inoremap {<cr> {<cr>}<c-o>O<tab>
+" inoremap [<cr> [<cr>]<c-o>O<tab>
+" inoremap (<cr> (<cr>)<c-o>O<tab>
+
 
 " ctrl-backspace to delete word
 noremap! <C-BS> <C-w>
