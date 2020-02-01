@@ -19,3 +19,5 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
 export PATH=~/.local/bin:~/go/bin:~/.local/bin/npm-global/bin:$PATH
+
+export QT_QPA_PLATFORMTHEME=gtk2

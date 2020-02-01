@@ -17,7 +17,7 @@ endif
 
 
 " nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
+" vnoremap <Space> zf
 
 " " better curlybraces action
 " inoremap {<cr> {<cr>}<c-o>O<tab>

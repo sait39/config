@@ -16,6 +16,7 @@ set shiftwidth=4
 
 " set default clipboard to global clipboard set clipboard+=unnamedplus 
 set number
+set clipboard+=unnamedplus
 
 " -- FOLDING --
 " set foldmethod=syntax " highlighting items specify folds
@@ -27,6 +28,10 @@ set number
 " hi Folded ctermfg=177
 " hi MatchParen ctermbg=61 
 " guibg=17
+
+
+" Make all folds be open
+set foldlevelstart=99
 
 set scrolloff=4 " Keep 4 lines below and above the cursor
 colorscheme gruvbox

@@ -3,6 +3,7 @@ cli_add_playlist_name Default
 close_send_to_tray 1
 deadbeef_version 1.8.2
 filechooser.lastdir file:///home/demi/Music
+filechooser.playlist.lastdir file:///home/demi/Music
 gtkui.columns.playlist [{"title":"Title","id":"-1","format":"%title%","sort_format":"","size":"707","align":"0","color_override":"0","color":"#ff000000"},{"title":"Duration","id":"-1","format":"%length%","sort_format":"","size":"50","align":"0","color_override":"0","color":"#ff000000"}]
 gtkui.layout.0.6.2 vbox expand="0 1" fill="1 1" homogeneous=0 {hbox expand="0 1 0" fill="1 1 1" homogeneous=0 {playtb {} seekbar {} volumebar {} } tabbed_playlist hideheaders=0 width=1580 {} } 
 gtkui.statusbar.visible 1

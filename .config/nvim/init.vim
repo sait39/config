@@ -19,6 +19,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'morhetz/gruvbox'
 Plug 'alvan/vim-closetag'
 Plug 'pangloss/vim-javascript'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 source $HOME/.config/nvim/general.vim
