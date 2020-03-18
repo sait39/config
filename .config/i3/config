@@ -64,8 +64,8 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym XF86AudioMicMute exec "pactl set-source-mute 1 toggle"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 3"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 3"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 2"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 2"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -77,9 +77,12 @@ bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+# bindsym Print exec --no-startup-id i3-scrot
+# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym Print exec --no-startup-id flameshot gui
+bindsym $mod+Print exec --no-startup-id flameshot screen -c -p ~/Pictures/
+
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -289,19 +292,19 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; # compton -b
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
+# exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id evolution
+# exec --no-startup-id evolution
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -337,7 +340,7 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3status -c ~/.config/i3status/i3status.conf
+	status_command i3status
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
@@ -366,6 +369,9 @@ bar {
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
+# start evolution
+bindsym $mod+e exec --no-startup-id evolution
+
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #123123 #556064 #80FFF9 #28594a  #b33251
@@ -381,8 +387,8 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer -2
+gaps inner 5
+gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -433,4 +439,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always nitrogen --restore
+exec --no-startup-id autorandr -c
+exec --no-startup-id nitrogen --restore
+exec_always sleep 4 && nitrogen --restore
