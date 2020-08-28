@@ -1,66 +1,114 @@
 " GENERAL SETTINGS
 
-filetype plugin indent on
 
-set termguicolors
+" Basic Settings
 
-set path+=**
+	set formatoptions-=cro
 
-" global tab settings
-set expandtab
-set tabstop=4
-set shiftwidth=4
+    filetype plugin indent on
+	set smarttab
 
-" set number
-" set relativenumber
+    set termguicolors
 
-" set default clipboard to global clipboard set clipboard+=unnamedplus 
-set number
-set clipboard+=unnamedplus
+    " global tab settings
+    set tabstop=4
+    set shiftwidth=4
 
-" -- FOLDING --
-" set foldmethod=syntax " highlighting items specify folds
-" set foldcolumn=1 
-" let javaScript_fold=1 " activate folding by JS syntax"
-" set foldlevelstart=99
+    set mouse=a
 
-" hi Folded ctermbg=234
-" hi Folded ctermfg=177
-" hi MatchParen ctermbg=61 
-" guibg=17
+    set ignorecase
+    set smartcase
+
+    set relativenumber
+    set number
+	set complete-=t
+
+	set iskeyword+=-
+	set iskeyword+=.
+
+    set scrolloff=4 " Keep 4 lines below and above the cursor
+
+    set path+=**
+
+    colorscheme onedark
+
+" Keybindings
+
+    let mapleader=" "
+
+    map <leader>i :setlocal autoindent<CR>
+    map <leader>I :setlocal noautoindent<CR>
+	map <leader>q :conf q<CR>
+
+	map <leader>tac :ToggleAutoComment<CR>
+
+	" " Copy to clipboard
+	vnoremap  <leader>y  "+y
+	nnoremap  <leader>Y  "+yg_
+	nnoremap  <leader>y  "+y
+	nnoremap  <leader>yy  "+yy
+
+	" " Paste from clipboard
+	nnoremap <leader>p "+p
+	nnoremap <leader>P "+P
+	vnoremap <leader>p "+p
+	vnoremap <leader>P "+P
+
+	" convenient way to open nerdtree
+	nmap <leader>ne :NERDTree<cr>
+
+	" change working directory to buffers directory
+	nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 
-" Make all folds be open
-set foldlevelstart=99
+	" when using escape make sure to get rid of highlighting
+	nnoremap <ESC> :noh<cr>:<BS>
+	" :noh<cr>    // gets rid of the current highlighted search
+	" :<BS>       // enters a : into the command line of vim and deletes it
+    " this way the vim command line gets cleared
 
-set scrolloff=4 " Keep 4 lines below and above the cursor
-colorscheme gruvbox
+	" fzf
+	map <C-p> <Esc><Esc>:Files!<CR>
+	inoremap <C-f> <Esc><Esc> :BLines!<CR>
 
-" Window Swapping
 
-function! MarkWindowSwap()
-    let g:markedWinNum = winnr()
-endfunction
+	" Extras
 
-function! DoWindowSwap()
-    "Mark destination
-    let curNum = winnr()
-    let curBuf = bufnr( "%" )
-    exe g:markedWinNum . "wincmd w"
-    "Switch to source and shuffle dest->source
-    let markedBuf = bufnr( "%" )
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' curBuf
-    "Switch to dest and shuffle source->dest
-    exe curNum . "wincmd w"
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' markedBuf 
-endfunction
+    " Vertically center document when entering insert mode
+    " autocmd InsertEnter * norm zz
 
-nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
-nmap <silent> <leader>pw :call DoWindowSwap()<CR>
+    " Remove whitespace at the end of lines
+    autocmd BufWritePre * %s/\s\+$//e
 
-" ctrlp ignore folders
+    " -- FOLDING --
+     set foldmethod=syntax " highlighting items specify folds
+     set foldcolumn=1
+     " Make all folds be open
+     set foldlevelstart=99
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+    " ctrlp ignore folders
+    let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+    " Shortcutting split navigation
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+
+if !exists('*ReloadVimrc')
+   fun! ReloadVimrc()
+       let save_cursor = getcurpos()
+       source $MYVIMRC
+       call setpos('.', save_cursor)
+   endfun
+endif
+autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
+
+
+command! ToggleAutoComment if &fo =~ 'cro' | set fo-=cro | else | set fo+=cro | endif
+
+
+
+
+
 

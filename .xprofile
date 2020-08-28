@@ -4,12 +4,7 @@
 xset r rate 250 50 &
 xset b 50 440 50 &
 
-setxkbmap -layout "us,de" -variant "altgr-intl,qwerty" -option grp:shifts_toggle caps:super  &
-
-
-killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' &
-
+setxkbmap -layout "us,de" -variant "altgr-intl,qwerty" -option grp:shifts_toggle caps:swapescape &
 
 # Menu button extra Mod/Escape
-xmodmap -e 'keycode 135 = Super_R' &
 unclutter &

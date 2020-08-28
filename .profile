@@ -18,6 +18,6 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
-export PATH=~/.config/composer/vendor/bin:~/.local/bin:~/go/bin:~/.local/bin/npm-global/bin:$PATH
+export PATH=~/.emacs.d/bin:~/.local/lib/python3.8/site-packages:~/.config/composer/vendor/bin:~/.local/bin:~/go/bin:~/.local/bin/npm-global/bin:$PATH
 
 export QT_QPA_PLATFORMTHEME=gtk2

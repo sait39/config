@@ -9,10 +9,10 @@ nnoremap <ESC> :noh<cr>:<BS>
     " this way the vim command line gets cleared
 
 " set plus and minus to window resize
-if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
-endif
+" if bufwinnr(1)
+"   map + <C-W>+
+"   map - <C-W>-
+" endif
 
 
 
@@ -29,16 +29,3 @@ endif
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
-" " Copy to clipboard
-vnoremap  <leader>y  "+y
-nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
-nnoremap  <leader>yy  "+yy
-
-" " Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
-
-" Change leader to space
