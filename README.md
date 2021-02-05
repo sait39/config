@@ -1,5 +1,5 @@
 # config
-Managing configs in a new way
+Repo for managing linux config files
 
 ### Create an alias for using the config
 
