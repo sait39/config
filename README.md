@@ -18,8 +18,13 @@ config config --local status.showUntrackedFiles no
 ### Example usage of this config management
 
 config status
+
 config add .vimrc
+
 config commit -m "Add vimrc"
+
 config add .bashrc
+
 config commit -m "Add bashrc"
+
 config push
