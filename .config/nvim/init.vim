@@ -37,6 +37,6 @@ source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/keys.vim
 
 " Settings for Plugins
-source $HOME/.config/nvim/setup-coc.vim
-source $HOME/.config/nvim/setup-closetag.vim
-source $HOME/.config/nvim/setup-auto-pairs.vim
+" source $HOME/.config/nvim/setup-coc.vim
+" source $HOME/.config/nvim/setup-closetag.vim
+" source $HOME/.config/nvim/setup-auto-pairs.vim

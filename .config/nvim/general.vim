@@ -30,7 +30,7 @@
 
     set path+=**
 
-    colorscheme onedark
+    colorscheme gruvbox
 
 " Keybindings
 
