@@ -123,7 +123,6 @@ kvantum-manjaro
 less
 lib32-flex
 lib32-mesa-demos
-lib32-nvidia-utils
 libdvdcss
 libgpod
 libreoffice-fresh
@@ -135,9 +134,7 @@ lightdm-settings
 lightdm-slick-greeter
 linux414-headers
 linux510
-linux510-nvidia
 linux54
-linux54-nvidia
 logrotate
 lutris
 lvm2
@@ -193,7 +190,6 @@ npm
 nss-mdns
 ntfs-3g
 ntp
-nvidia-utils
 obs-studio
 openresolv
 openssh
