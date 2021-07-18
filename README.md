@@ -28,3 +28,17 @@ config add .bashrc
 config commit -m "Add bashrc"
 
 config push
+
+---
+
+### Installing packages from a Packagelist
+
+If you created your package list of currently installed packages using
+pacman -Qqen > your_package_list.txt
+
+then you can do
+pacman -S - < your_package_list.txt
+
+to install everything in that list
+
+Very good thing if you are setting up a new pc.
