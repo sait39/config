@@ -4,7 +4,7 @@
 xset r rate 250 50 &
 xset b 50 440 50 &
 
-setxkbmap -layout "us,de" -variant "altgr-intl,qwerty" -option grp:shifts_toggle caps:swapescape &
+setxkbmap -layout "us,de" -variant "altgr-intl,qwerty" -option grp:win_space_toggle caps:escape &
 
 # Menu button extra Mod/Escape
 unclutter &

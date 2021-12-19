@@ -6,6 +6,8 @@ set $mod Mod4
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
+workspace_layout stacking
+# layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
@@ -21,7 +23,7 @@ hide_edge_borders none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:monospace 8
+font xft:monospace 12
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -32,9 +34,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Jump to urgent window
+bindsym $mod+x [urgent=latest] focus
+
 # start program launcher
 # bindsym $mod+p exec --no-startup-id dmenu_recency
-bindsym $mod+p exec --no-startup-id "rofi -combi-modi window,run -show combi -modi combi -ic-n-theme 'Papirus-Dark' -show-icons"
+bindsym $mod+p exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'Papirus-Dark' -show-icons"
 # launch categorized menu
 # bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -64,18 +69,18 @@ bindsym $mod+Ctrl+m exec pavucontrol
 bindsym XF86AudioMicMute exec "pactl set-source-mute 1 toggle"
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 3"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 3"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 7"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 7"
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+w exec $BROWSER
+# bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+w exec firefox-developer-edition
 bindsym $mod+Shift+f exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -86,7 +91,7 @@ bindsym $mod+Print exec --no-startup-id flameshot screen -c -p ~/Pictures/
 # bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 # change focus
 bindsym $mod+h focus left
@@ -114,21 +119,21 @@ bindsym $mod+Shift+l move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# bindsym $mod+b workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+s split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+# bindsym $mod+s split h;exec notify-send 'tile horizontally'
+# bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+# bindsym $mod+b layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -160,44 +165,52 @@ bindsym $mod+Shift+u move container to workspace prev; workspace prev
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 1:1L
-set $ws2 2:2L
-set $ws3 3:3L
-set $ws4 4:4L
-set $ws5 5:7R
-set $ws6 6:8R
-set $ws7 7:9R
-set $ws8 8:10R
+set $ws0 1:1L
+set $ws1 2:2L
+set $ws2 3:3L
+set $ws3 4:4L
+set $ws4 5:5L
+set $ws5 6:6R
+set $ws6 7:7R
+set $ws7 8:8R
+set $ws8 9:9R
+set $ws9 10:10R
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+7 workspace $ws5
-bindsym $mod+8 workspace $ws6
-bindsym $mod+9 workspace $ws7
-bindsym $mod+0 workspace $ws8
+bindsym $mod+1 workspace $ws0
+bindsym $mod+2 workspace $ws1
+bindsym $mod+3 workspace $ws2
+bindsym $mod+4 workspace $ws3
+bindsym $mod+5 workspace $ws4
+bindsym $mod+6 workspace $ws5
+bindsym $mod+7 workspace $ws6
+bindsym $mod+8 workspace $ws7
+bindsym $mod+9 workspace $ws8
+bindsym $mod+0 workspace $ws9
 
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+7 move container to workspace $ws5
-bindsym $mod+Shift+8 move container to workspace $ws6
-bindsym $mod+Shift+9 move container to workspace $ws7
-bindsym $mod+Shift+0 move container to workspace $ws8
+bindsym $mod+Shift+1 move container to workspace $ws0
+bindsym $mod+Shift+2 move container to workspace $ws1
+bindsym $mod+Shift+3 move container to workspace $ws2
+bindsym $mod+Shift+4 move container to workspace $ws3
+bindsym $mod+Shift+5 move container to workspace $ws4
+bindsym $mod+Shift+6 move container to workspace $ws5
+bindsym $mod+Shift+7 move container to workspace $ws6
+bindsym $mod+Shift+8 move container to workspace $ws7
+bindsym $mod+Shift+9 move container to workspace $ws8
+bindsym $mod+Shift+0 move container to workspace $ws9
 
-workspace $ws1 output LVDS1
-workspace $ws2 output LVDS1
-workspace $ws3 output LVDS1
-workspace $ws4 output LVDS1
-workspace $ws5 output DP2 LVDS1
-workspace $ws6 output DP2 LVDS1
-workspace $ws7 output DP2 LVDS1
-workspace $ws8 output DP2 LVDS1
+workspace $ws0 output HDMI-0 DP-0
+workspace $ws1 output HDMI-0 DP-0
+workspace $ws2 output HDMI-0 DP-0
+workspace $ws3 output HDMI-0 DP-0
+workspace $ws4 output HDMI-0 DP-0
+workspace $ws5 output DP-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-0
+workspace $ws8 output DP-0
+workspace $ws9 output DP-0
 
 # Move to workspace with focused container
 # bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -214,7 +227,7 @@ workspace $ws8 output DP2 LVDS1
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-assign [class="jetbrains-phpstorm"] $ws1
+# assign [class="jetbrains-phpstorm"] $ws1
 
 # Open specific applications in floating mode
 # for_window [title="alsamixer"] floating enable border pixel 1
@@ -298,6 +311,19 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# Resize window (you can also use the mouse for that)
+bindsym $mod+m mode "move"
+mode "move" {
+		bindsym h move left
+		bindsym j move down
+		bindsym k move up
+		bindsym l move right
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 # Lock screen
 # bindsym $mod+9 exec --no-startup-id blurlock
 
@@ -310,6 +336,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
+exec --no-startup-id dunst
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
@@ -378,16 +405,19 @@ bar {
     }
 }
 
+# exec --no-startup-id xfce4-panel --disable-wm-check
+# exec_always "sleep 2; xfce4-panel -r"
+
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # start evolution
 bindsym $mod+e exec --no-startup-id evolution
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #123123 #556064 #80FFF9 #28594a  #b33251
-  client.focused_inactive #123123 #2F3D44 #1ABC9C #000000  #661528
+  client.focused          #123123 #556064 #80FFF9 #28594a  #661528
+  client.focused_inactive #2F3D44 #414d52 #1ABC9C #454948
   client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
@@ -399,7 +429,7 @@ bindsym $mod+e exec --no-startup-id evolution
 #############################
 
 # Set inner/outer gaps
-gaps inner 5
+gaps inner 3
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -408,11 +438,11 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-# smart_borders on
+smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -452,6 +482,8 @@ mode "$mode_gaps_outer" {
 }
 
 exec --no-startup-id autorandr -c
+exec --no-startup-id slack -u
+exec --no-startup-id ~/Stretchly-1.8.1.AppImage
 exec --no-startup-id nitrogen --restore
 # exec --no-startup-id xfce4-panel
 exec --no-startup-id kupfer --no-splash
