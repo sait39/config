@@ -24,4 +24,6 @@ alias \
     config='/usr/bin/git --git-dir=$HOME/.cfg/ --git-dir=$HOME/.cfg/ --work-tree=$HOME' \
     tmux='tmux -f ~/.config/tmux/tmux.conf' \
     monitors='setup-monitors.sh' \
-    notes='nvim -S ~/Documents/Sessions/notes.vim'
+    notes='nvim -S ~/Documents/Sessions/notes.vim' \
+	df='df -h' \
+	free='free -m' \
