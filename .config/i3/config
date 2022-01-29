@@ -74,7 +74,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 7"
 
 # Start Applications
 # bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+w exec firefox-developer-edition
+# bindsym $mod+w exec firefox-developer-edition
 bindsym $mod+Shift+f exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -94,10 +94,10 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 focus_follows_mouse no
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+a focus left
+bindsym $mod+s focus down
+bindsym $mod+w focus up
+bindsym $mod+d focus right
 
 # # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
@@ -106,10 +106,10 @@ bindsym $mod+l focus right
 # bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+a move left
+bindsym $mod+Shift+s move down
+bindsym $mod+Shift+w move up
+bindsym $mod+Shift+d move right
 
 # # alternatively, you can use the cursor keys:
 # bindsym $mod+Shift+Left move left
@@ -123,16 +123,16 @@ workspace_auto_back_and_forth yes
 # bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-# bindsym $mod+s split h;exec notify-send 'tile horizontally'
-# bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+v split v;exec notify-send 'tile vertically'
+# bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
+bindsym $mod+n layout stacking
+bindsym $mod+m layout tabbed
 # bindsym $mod+b layout toggle split
 
 # toggle tiling / floating
@@ -145,7 +145,7 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
 # bindsym $mod+Shift+minus move scratchpad
@@ -155,11 +155,11 @@ bindsym $mod+a focus parent
 # bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+i workspace next_on_output
-bindsym $mod+u workspace prev_on_output
+bindsym $mod+c workspace next_on_output
+bindsym $mod+z workspace prev_on_output
 
-bindsym $mod+Shift+i move container to workspace next; workspace next
-bindsym $mod+Shift+u move container to workspace prev; workspace prev
+bindsym $mod+Shift+c move container to workspace next; workspace next
+bindsym $mod+Shift+z move container to workspace prev; workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -262,7 +262,7 @@ workspace $ws9 output DP-0
 # for_window [urgent=latest] focus
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -311,18 +311,18 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Resize window (you can also use the mouse for that)
-bindsym $mod+m mode "move"
-mode "move" {
-		bindsym h move left
-		bindsym j move down
-		bindsym k move up
-		bindsym l move right
+# MODE: Move window
+# bindsym $mod+m mode "move"
+# mode "move" {
+# 		bindsym h move left
+# 		bindsym j move down
+# 		bindsym k move up
+# 		bindsym l move right
 
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+#         # exit resize mode: Enter or Escape
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
 # Lock screen
 # bindsym $mod+9 exec --no-startup-id blurlock
@@ -384,7 +384,6 @@ bar {
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 	tray_output primary
-#	tray_output eDP1
 
 	bindsym button4 nop
 	bindsym button5 nop
@@ -404,6 +403,7 @@ bar {
         urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
+
 
 # exec --no-startup-id xfce4-panel --disable-wm-check
 # exec_always "sleep 2; xfce4-panel -r"
@@ -429,8 +429,8 @@ bindsym $mod+e exec --no-startup-id evolution
 #############################
 
 # Set inner/outer gaps
-gaps inner 3
-gaps outer 0
+gaps inner 15
+gaps outer 15
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -438,53 +438,71 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+# set $mode_gaps Gaps: (o) outer, (i) inner
+# set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+
+### START - CLOSE WITH PROMPT
+set $close "Close the window? (Close(q)/Abort(Escape))"
+
+mode $close {
+	bindsym $mod+q kill, mode default
+	bindsym q kill, mode default
+	bindsym Return kill, mode default
+
+	bindsym n mode default
+	bindsym Escape mode default
 }
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+bindsym $mod+q mode $close
+### END - CLOSE WITH PROMPT
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+# mode "$mode_gaps" {
+#         bindsym o      mode "$mode_gaps_outer"
+#         bindsym i      mode "$mode_gaps_inner"
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# mode "$mode_gaps_inner" {
+#         bindsym plus  gaps inner current plus 5
+#         bindsym minus gaps inner current minus 5
+#         bindsym 0     gaps inner current set 0
+
+#         bindsym Shift+plus  gaps inner all plus 5
+#         bindsym Shift+minus gaps inner all minus 5
+#         bindsym Shift+0     gaps inner all set 0
+
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+#
+# mode "$mode_gaps_outer" {
+#         bindsym plus  gaps outer current plus 5
+#         bindsym minus gaps outer current minus 5
+#         bindsym 0     gaps outer current set 0
+
+#         bindsym Shift+plus  gaps outer all plus 5
+#         bindsym Shift+minus gaps outer all minus 5
+#         bindsym Shift+0     gaps outer all set 0
+
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
 exec --no-startup-id autorandr -c
 exec --no-startup-id slack -u
-exec --no-startup-id ~/Stretchly-1.8.1.AppImage
+exec --no-startup-id picom
+exec --no-startup-id stretchly
 exec --no-startup-id nitrogen --restore
-# exec --no-startup-id xfce4-panel
-exec --no-startup-id kupfer --no-splash
 exec_always sleep 4 && nitrogen --restore
