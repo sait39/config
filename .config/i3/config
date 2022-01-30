@@ -5,8 +5,9 @@
 set $mod Mod4
 
 # set default desktop layout (default is tiling)
+workspace_layout default
 # workspace_layout tabbed <stacking|tabbed>
-workspace_layout stacking
+# workspace_layout stacking
 # layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -32,14 +33,14 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+# bindsym $mod+Shift+q kill
 
 # Jump to urgent window
 bindsym $mod+x [urgent=latest] focus
 
 # start program launcher
 # bindsym $mod+p exec --no-startup-id dmenu_recency
-bindsym $mod+p exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'Papirus-Dark' -show-icons"
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'Papirus-Dark' -show-icons"
 # launch categorized menu
 # bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -99,6 +100,11 @@ bindsym $mod+s focus down
 bindsym $mod+w focus up
 bindsym $mod+d focus right
 
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 # # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
 # bindsym $mod+Down focus down
@@ -110,6 +116,11 @@ bindsym $mod+Shift+a move left
 bindsym $mod+Shift+s move down
 bindsym $mod+Shift+w move up
 bindsym $mod+Shift+d move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # # alternatively, you can use the cursor keys:
 # bindsym $mod+Shift+Left move left
@@ -123,7 +134,7 @@ workspace_auto_back_and_forth yes
 # bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+c split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 # bindsym $mod+q split toggle
 
@@ -155,11 +166,17 @@ bindsym $mod+Shift+space floating toggle
 # bindsym $mod+minus scratchpad show
 
 #navigate workspaces next / previous
-bindsym $mod+c workspace next_on_output
-bindsym $mod+z workspace prev_on_output
+bindsym $mod+e workspace next_on_output
+bindsym $mod+q workspace prev_on_output
 
-bindsym $mod+Shift+c move container to workspace next; workspace next
-bindsym $mod+Shift+z move container to workspace prev; workspace prev
+bindsym $mod+u workspace next_on_output
+bindsym $mod+i workspace prev_on_output
+
+bindsym $mod+Shift+e move container to workspace next; workspace next
+bindsym $mod+Shift+q move container to workspace prev; workspace prev
+
+bindsym $mod+Shift+u move container to workspace next; workspace next
+bindsym $mod+Shift+i move container to workspace prev; workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -262,7 +279,7 @@ workspace $ws9 output DP-0
 # for_window [urgent=latest] focus
 
 # reload the configuration file
-# bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -271,7 +288,11 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
-bindsym $mod+Shift+e mode "$mode_system"
+# bindsym $mod+F1 mode "$mode_system"
+# bindsym $mod+F2 mode "$mode_system"
+# bindsym $mod+F3 mode "$mode_system"
+# bindsym $mod+F4 mode "$mode_system"
+bindsym $mod+Tab mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -412,7 +433,7 @@ bar {
 # bindsym $mod+m bar mode toggle
 
 # start evolution
-bindsym $mod+e exec --no-startup-id evolution
+# bindsym $mod+e exec --no-startup-id evolution
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -452,18 +473,18 @@ smart_borders on
 
 
 ### START - CLOSE WITH PROMPT
-set $close "Close the window? (Close(q)/Abort(Escape))"
+set $close "Close the window? (Close($mod+Escape)/Abort(Escape))"
 
 mode $close {
-	bindsym $mod+q kill, mode default
-	bindsym q kill, mode default
+	bindsym $mod+Escape kill, mode default
+	bindsym kill, mode default
 	bindsym Return kill, mode default
 
 	bindsym n mode default
 	bindsym Escape mode default
 }
 
-bindsym $mod+q mode $close
+bindsym $mod+Escape mode $close
 ### END - CLOSE WITH PROMPT
 
 
