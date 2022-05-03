@@ -29,3 +29,7 @@ nnoremap <ESC> :noh<cr>:<BS>
 noremap! <C-BS> <C-w>
 noremap! <C-h> <C-w>
 
+
+" Toggle NERDTREE
+nnoremap <C-b> :NERDTreeToggle %<CR>
+map <leader>r :NERDTreeFind<cr>

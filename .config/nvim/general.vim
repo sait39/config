@@ -107,4 +107,3 @@ autocmd! BufWritePost $MYVIMRC call ReloadVimrc()
 
 command! ToggleAutoComment if &fo =~ 'cro' | set fo-=cro | else | set fo+=cro | endif
 
-
