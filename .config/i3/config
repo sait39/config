@@ -30,7 +30,7 @@ font xft:monospace 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+t exec i3-sensible-terminal
 
 # kill focused window
 # bindsym $mod+Shift+q kill
@@ -140,12 +140,13 @@ bindsym $mod+v split v;exec notify-send 'tile vertically'
 # bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# bindsym $mod+f fullscreen toggle
+bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+n layout stacking
-bindsym $mod+m layout tabbed
-# bindsym $mod+b layout toggle split
+# bindsym $mod+n layout stacking
+# bindsym $mod+m layout tabbed
+bindsym $mod+b exec $BROWSER
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
