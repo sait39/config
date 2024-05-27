@@ -1,1 +1,1 @@
-htop keepassxc ranger rofi tldr neovim vlc yt-dlp
+htop keepassxc ranger rofi tldr neovim vlc yt-dlp git
