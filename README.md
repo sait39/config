@@ -9,7 +9,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 echo ".cfg" >> .gitignore
 
-git clone --bare https://github.com/SaitDemi/config.git $HOME/.cfg
+git clone --bare https://github.com/sait39/config.git $HOME/.cfg
 
 config checkout
 
