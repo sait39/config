@@ -220,6 +220,7 @@ bindsym $mod+Shift+8 move container to workspace $ws7
 bindsym $mod+Shift+9 move container to workspace $ws8
 bindsym $mod+Shift+0 move container to workspace $ws9
 
+
 workspace $ws0 output HDMI-1 DP-0
 workspace $ws1 output HDMI-1 DP-0
 workspace $ws2 output HDMI-1 DP-0
@@ -230,6 +231,7 @@ workspace $ws6 output DP-0
 workspace $ws7 output DP-0
 workspace $ws8 output DP-0
 workspace $ws9 output DP-0
+
 
 # Move to workspace with focused container
 # bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
