@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
+Plug 'Pocco81/TrueZen.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
@@ -35,6 +36,7 @@ call plug#end()
 
 source $HOME/.config/nvim/general.vim
 source $HOME/.config/nvim/keys.vim
+source $HOME/.config/nvim/truezen.vim
 
 " Settings for Plugins
 " source $HOME/.config/nvim/setup-coc.vim
