@@ -27,3 +27,8 @@ alias \
     notes='nvim -S ~/Documents/Sessions/notes.vim' \
 	df='df -h' \
 	free='free -m' \
+	nvminit='. /usr/share/nvm/nvm.sh && nvm use 14' \
+	sshinit='eval `ssh-agent` && ssh-add' \
+	kbinit='setxkbmap -layout "us,de" -variant "altgr-intl,qwerty" -option grp:win_space_toggle caps:escape && xset r rate 250 50' \
+	sail='[ -f sail ] && bash sail || bash vendor/bin/sail' \
+	nr='npm run' \
