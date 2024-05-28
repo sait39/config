@@ -3,17 +3,18 @@ Repo for managing linux config files
 
 ### Create an alias for using the config
 
-alias config='/usr/bin/git --git-dir=$HOME/.config/.cfg/ --work-tree=$HOME'
+
+`alias config='/usr/bin/git --git-dir=$HOME/.config/.cfg/ --work-tree=$HOME'`
 
 ###
 
-echo ".config/.cfg" >> .gitignore
+`echo ".config/.cfg" >> .gitignore`
 
-git clone --bare git@github.com:sait39/config.git $HOME/.config/.cfg
+`git clone --bare git@github.com:sait39/config.git $HOME/.config/.cfg`
 
-config checkout
+`config checkout`
 
-config config --local status.showUntrackedFiles no
+`config config --local status.showUntrackedFiles no`
 
 ### Example usage of this config management
 
