@@ -3,7 +3,7 @@ Repo for managing linux config files
 
 ### Create an alias for using the config
 
-alias config='/usr/bin/git --git-dir=$HOME/.config/.cfg/ --work-tree=$HOME/.config/'
+alias config='/usr/bin/git --git-dir=$HOME/.config/.cfg/ --work-tree=$HOME'
 
 ###
 
