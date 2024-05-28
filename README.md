@@ -3,13 +3,13 @@ Repo for managing linux config files
 
 ### Create an alias for using the config
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.config/.cfg/ --work-tree=$HOME/.config/'
 
 ###
 
-echo ".cfg" >> .gitignore
+echo ".config/.cfg" >> .gitignore
 
-git clone --bare https://github.com/sait39/config.git $HOME/.cfg
+git clone --bare https://github.com/sait39/config.git $HOME/.config/.cfg
 
 config checkout
 
