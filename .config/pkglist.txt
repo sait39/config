@@ -8,3 +8,6 @@ Flatpak - with instructions
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub org.localsend.localsend_app
 flatpak install flathub org.nextcloud.Nextcloud
+
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
