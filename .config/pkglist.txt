@@ -3,3 +3,8 @@ htop ranger tldr neovim yt-dlp git nodejs npm
 
 GUI
 keepassxc rofi vlc
+
+Flatpak - with instructions
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.localsend.localsend_app
+flatpak install flathub org.nextcloud.Nextcloud
