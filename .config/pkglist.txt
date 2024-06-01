@@ -1,1 +1,5 @@
-htop keepassxc ranger rofi tldr neovim vlc yt-dlp git
+Terminal
+htop ranger tldr neovim yt-dlp git nodejs npm
+
+GUI
+keepassxc rofi vlc
