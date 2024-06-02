@@ -11,3 +11,5 @@ flatpak install flathub org.nextcloud.Nextcloud
 
 sudo dnf copr enable atim/lazygit -y
 sudo dnf install lazygit
+
+curl -sS https://starship.rs/install.sh | sh
